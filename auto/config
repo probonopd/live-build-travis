@@ -1,17 +1,16 @@
 #!/bin/sh
 
 lb config noauto \
-    --mirror-binary "http://ftp.de.debian.org/debian/" \
+#   --mirror-binary "http://ftp.de.debian.org/debian/" \
+    --mode debian \
     −−distribution buster \
     −−ignore−system−defaults \
-    --mode debian \
     --architectures amd64 \
     --debian-installer false \
     --archive-areas "main contrib non-free" \
     --apt-indices false \
     --memtest none \
     −−apt−recommends false \
-    −−mode debian \
     −−bootloader grub \
     −−bootstrap−flavour minimal \
     −−debconf−frontend noninteractive \
