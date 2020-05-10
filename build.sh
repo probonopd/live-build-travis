@@ -8,8 +8,8 @@ set -e
 which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y live-build)
 
 # Build documentation PDF
-man -t lb config | ps2pdf - lb_config.pdf
-man -t live-build | ps2pdf - live-build.pdf
+# man -t lb config | ps2pdf - lb_config.pdf
+# man -t live-build | ps2pdf - live-build.pdf
 
 # Note that you cannot crossbuild for another architecture
 # if your host system is not able to execute binaries
