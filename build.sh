@@ -23,8 +23,18 @@ which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y liv
 # E: Release signed by unknown key (key id DCC9EFBF77E11517)
 # wget https://ftp-master.debian.org/keys/release-10.asc -qO- | gpg --import # DOES NOT WORK!
 # https://serverfault.com/a/975274
-sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-automatic.gpg --keyserver keyserver.ubuntu.com --recv 648ACFD622F3D138
-sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-stable.gpg --keyserver keyserver.ubuntu.com --recv DCC9EFBF77E11517
+# sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-automatic.gpg --keyserver keyserver.ubuntu.com --recv 648ACFD622F3D138
+# sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-stable.gpg --keyserver keyserver.ubuntu.com --recv DCC9EFBF77E11517
+# DOES NOT WORK EITHER:
+# gpg: WARNING: unsafe ownership on configuration file `/home/travis/.gnupg/gpg.conf'
+# gpg: keyring `/home/travis/.gnupg/secring.gpg' created
+# gpg: keyring `/etc/apt/trusted.gpg.d/debian-archive-buster-automatic.gpg' created
+# gpg: external program calls are disabled due to unsafe options file permissions
+# gpg: keyserver communications error: general error
+# Just let me do with without gpg altogether! After all, I am downloading the keys from "random" keyservers,
+# build on a "random" Travis CI machine which probably "random" Intel CPUs... it's all pseudo "security" anyway
+# not worth the hassle. Correct me if I'm wong.
+# For now, using stretch which doesn't seem to have this issue.
 
 lb config noauto \
     --mode debian \
