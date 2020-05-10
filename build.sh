@@ -18,7 +18,7 @@ which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y liv
 # capable i386 processor and the right kernel. But building powerpc
 # images on an i386 system is not possible.
 
-lb config
+lb config --mode debian
 
 # −−source true|false
 # defines if a corresponding source image to the binary image
