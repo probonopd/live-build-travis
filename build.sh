@@ -18,31 +18,7 @@ man -t live-build | ps2pdf - live-build.pdf
 # capable i386 processor and the right kernel. But building powerpc
 # images on an i386 system is not possible.
 
-lb config noauto \
-    --mirror-binary "http://ftp.de.debian.org/debian/" \
-    −−distribution buster \
-    −−ignore−system−defaults \
-    --mode debian \
-    --architectures amd64 \
-    --debian-installer false \
-    --archive-areas "main contrib non-free" \
-    --apt-indices false \
-    --memtest none \
-    −−apt−recommends false \
-    −−mode debian \
-    −−bootloader grub \
-    −−bootstrap−flavour minimal \
-    −−debconf−frontend noninteractive \
-    −−debconf−nowarnings true \
-    −−debian−installer false \
-    −−distribution CODENAME \
-    −−system live \
-    −−source false \
-    −−source−images iso \
-    −−firmware−chroot true \
-    −−verbose
-    "${@}"
-
+lb config
 
 # −−source true|false
 # defines if a corresponding source image to the binary image
