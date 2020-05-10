@@ -20,10 +20,11 @@ addons:
 
 script:
   - bash -ex ./build.sh |& tee log.txt
+  - ls *.iso || exit 1 # We want to build red if no ISO has been produced
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh *.iso* *.pdf
+  - bash upload.sh *.iso
   
 branches:
   except:
