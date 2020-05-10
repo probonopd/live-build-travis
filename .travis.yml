@@ -15,6 +15,7 @@ addons:
       - zsync
       - ghostscript
       - debian-archive-keyring
+      - coreutils
 
 script:
   - bash -ex ./build.sh |& tee log.txt
