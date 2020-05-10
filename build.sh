@@ -21,12 +21,13 @@ which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y liv
 # Desperate try
 # Workaround for:
 # E: Release signed by unknown key (key id DCC9EFBF77E11517)
-wget https://ftp-master.debian.org/keys/release-10.asc -qO- | gpg --import
+# DOES NOT WORK!
+# wget https://ftp-master.debian.org/keys/release-10.asc -qO- | gpg --import
 
 lb config noauto \
     --mode debian \
     --architectures amd64 \
-    --distribution buster \
+    --distribution stretch \
     −−ignore−system−defaults \
     --debian-installer false \
     --archive-areas "main contrib non-free" \
