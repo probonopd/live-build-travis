@@ -18,8 +18,28 @@ which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y liv
 # capable i386 processor and the right kernel. But building powerpc
 # images on an i386 system is not possible.
 
-lb config --mode debian
-
+lb config noauto \
+    --mode debian \
+    --architectures amd64 \
+    --distribution buster \
+    −−ignore−system−defaults \
+    --debian-installer false \
+    --archive-areas "main contrib non-free" \
+    --apt-indices false \
+    --memtest none \
+    −−apt−recommends false \
+    −−bootloader grub \
+    −−bootstrap−flavour minimal \
+    −−debconf−frontend noninteractive \
+    −−debconf−nowarnings true \
+    −−debian−installer false \
+    −−distribution CODENAME \
+    −−system live \
+    −−source false \
+    −−source−images iso \
+    −−firmware−chroot true \
+    −−verbose
+    
 # −−source true|false
 # defines if a corresponding source image to the binary image
 # should be build. By default this is false
