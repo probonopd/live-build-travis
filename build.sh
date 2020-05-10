@@ -21,8 +21,10 @@ which lb >/dev/null 2>&1 || ( sudo apt-get update && sudo apt-get install -y liv
 # Desperate try
 # Workaround for:
 # E: Release signed by unknown key (key id DCC9EFBF77E11517)
-# DOES NOT WORK!
-# wget https://ftp-master.debian.org/keys/release-10.asc -qO- | gpg --import
+# wget https://ftp-master.debian.org/keys/release-10.asc -qO- | gpg --import # DOES NOT WORK!
+# https://serverfault.com/a/975274
+sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-automatic.gpg --keyserver keyserver.ubuntu.com --recv 648ACFD622F3D138
+sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/debian-archive-buster-stable.gpg --keyserver keyserver.ubuntu.com --recv DCC9EFBF77E11517
 
 lb config noauto \
     --mode debian \
