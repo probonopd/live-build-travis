@@ -13,13 +13,14 @@ addons:
       - squashfs-tools
       - genisoimage
       - zsync
-  
+      - ghostscript
+
 script:
   - bash -ex ./build.sh |& tee log.txt
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh *.iso*
+  - bash upload.sh *.iso* *.pdf
   
 branches:
   except:
