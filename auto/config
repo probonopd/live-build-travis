@@ -1,11 +1,13 @@
 #!/bin/sh
 
+set -e
+
 lb config noauto \
-#   --mirror-binary "http://ftp.de.debian.org/debian/" \
     --mode debian \
-    −−distribution buster \
-    −−ignore−system−defaults \
     --architectures amd64 \
+    --distribution buster \
+#   --mirror-binary "http://ftp.de.debian.org/debian/" \
+    −−ignore−system−defaults \
     --debian-installer false \
     --archive-areas "main contrib non-free" \
     --apt-indices false \
